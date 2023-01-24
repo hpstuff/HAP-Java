@@ -109,12 +109,12 @@ public class HomekitServer {
    * @throws IOException when mDNS cannot connect to the network
    */
   public HomekitStandaloneAccessoryServer createStandaloneAccessory(
-      HomekitAuthInfo authInfo, HomekitAccessory accessory)
+      HomekitAuthInfo authInfo, HomekitAccessory accessory, HomekitAccessoryCategories category)
       throws IOException, ExecutionException, InterruptedException {
     if (jmdns != null) {
-      return new HomekitStandaloneAccessoryServer(accessory, http, jmdns, authInfo);
+      return new HomekitStandaloneAccessoryServer(accessory, category, http, jmdns, authInfo);
     } else {
-      return new HomekitStandaloneAccessoryServer(accessory, http, localAddress, authInfo);
+      return new HomekitStandaloneAccessoryServer(accessory, category, http, localAddress, authInfo);
     }
   }
 
