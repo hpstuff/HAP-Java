@@ -23,21 +23,23 @@ public class HomekitStandaloneAccessoryServer {
 
   HomekitStandaloneAccessoryServer(
       HomekitAccessory accessory,
+      HomekitAccessoryCategories category,
       HomekitWebHandler webHandler,
       InetAddress localhost,
       HomekitAuthInfo authInfo)
       throws UnknownHostException, IOException, ExecutionException, InterruptedException {
-    root = new HomekitRoot(accessory.getName().get(), webHandler, localhost, authInfo);
+    root = new HomekitRoot(accessory.getName().get(), category, webHandler, localhost, authInfo);
     root.addAccessory(accessory);
   }
 
   HomekitStandaloneAccessoryServer(
       HomekitAccessory accessory,
+      HomekitAccessoryCategories category,
       HomekitWebHandler webHandler,
       JmDNS jmdns,
       HomekitAuthInfo authInfo)
       throws UnknownHostException, IOException, ExecutionException, InterruptedException {
-    root = new HomekitRoot(accessory.getName().get(), webHandler, jmdns, authInfo);
+    root = new HomekitRoot(accessory.getName().get(), category, webHandler, jmdns, authInfo);
     root.addAccessory(accessory);
   }
 
